@@ -101,11 +101,12 @@ timer.addEventListener('secondsUpdated', function(e) {
 
 timer.addEventListener('targetAchieved', function(e) {
   $('#status').html('Uplink Completed')
-  if($('#key').html() == whiteplaza){
+
+  if($('#key').html() == 'whiteplaza'){
     $('#countdownExample .values').html('Code: white');
-  }else if($('#key').html() == schwab){
+  }else if($('#key').html() == 'schwab'){
     $('#countdownExample .values').html('Code: schwab');
-  }else if($('#key').html() == cubberly){
+  }else if($('#key').html() == 'cubberly'){
     $('#countdownExample .values').html('Code: cubberly');
   }
 });
