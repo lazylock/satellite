@@ -58,7 +58,7 @@ function measure(lat1, lon1, lat2, lon2) {
 }
 
 var timer = new Timer();
-timer.start({countdown: true, startValues: {seconds: 10}});
+timer.start({countdown: true, startValues: {seconds: 300}});
 timer.pause();
 
 $('#countdownExample .values').html(timer.getTimeValues().toString());
