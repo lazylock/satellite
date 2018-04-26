@@ -63,12 +63,12 @@ timer.pause();
 
 $('#countdownExample .values').html(timer.getTimeValues().toString());
 
-$('#button').vmouseup(function () {
+$('#button').on('vmouseup', function () {
   $('#status').html('Status: Signal lost')
   timer.pause();
 });
 
-$('#button').vmousedown(function () {
+$('#button').on('vmousedown', function () {
   $('#status').html('Status: Connecting...')
   timer.start();
 });
