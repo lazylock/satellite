@@ -68,7 +68,9 @@ $('#button').on('vmousedown', function () {
   $('#status').html('Status: Connecting')
   timer.start();
   setTimeout(function () {
-    if(initMap() > 1000){
+    var distance = initMap();
+    $('#distance').html('Distance: ' + distance);
+    if(distance > 1000){
       $('#status').html('Status: Out of range')
       timer.pause();    
     }
