@@ -49,10 +49,11 @@
             infoWindow.setPosition(pos);
             infoWindow.setContent('Location found.');
             infoWindow.open(map);
-            map.setCenter(pos);
+            console.log(pos);
+            //map.setCenter(pos);
 
             var distance = measure(pos.lat, pos.lng, target.lat, target.lng);
-            document.getElementById('distance').innerHTML = distance;
+            document.getElementById('distance').innerHTML = "distance";
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
