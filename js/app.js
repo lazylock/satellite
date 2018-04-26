@@ -1,11 +1,4 @@
-var map, infoWindow;
-
 function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: -34.397, lng: 150.644 },
-        zoom: 6
-    });
-    infoWindow = new google.maps.InfoWindow;
 
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
@@ -20,19 +13,15 @@ function initMap() {
                 lng: -122.170150
             }
 
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
-            infoWindow.open(map);
-            map.setCenter(pos);
-
             var distance = measure(pos.lat, pos.lng, target.lat, target.lng);
             console.log(distance);
+
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
         });
     } else {
         // Browser doesn't support Geolocation
-        console.log('location error')
+        console.log('location error');
         handleLocationError(false, infoWindow, map.getCenter());
     }
 }
@@ -69,7 +58,7 @@ $('#button').mouseup(function () {
 });
 
 $('#button').mousedown(function () {
-  $('#status').html('Status: Connecting...')
+  $('#status').html('Status: Connecting')
   timer.start();
 });
 
