@@ -19,7 +19,7 @@
     </style>
   </head>
   <body>
-    <div id="distance"></div>
+    <div id="map"></div>
     <script>
       // Note: This example requires that you consent to location sharing when
       // prompted by your browser. If you see the error "The Geolocation service
@@ -27,10 +27,10 @@
       // locate you.
       var map, infoWindow;
       function initMap() {
-        // map = new google.maps.Map(document.getElementById('map'), {
-        //   center: {lat: -34.397, lng: 150.644},
-        //   zoom: 6
-        // });
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 6
+        });
         infoWindow = new google.maps.InfoWindow;
 
         // Try HTML5 geolocation.
@@ -49,11 +49,11 @@
             infoWindow.setPosition(pos);
             infoWindow.setContent('Location found.');
             infoWindow.open(map);
-            console.log(pos);
             //map.setCenter(pos);
 
             var distance = measure(pos.lat, pos.lng, target.lat, target.lng);
-            document.getElementById('distance').innerHTML = "distance";
+            console.log(distance);
+            // document.getElementById('distance').innerHTML = "distance";
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
