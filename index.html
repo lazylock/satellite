@@ -19,7 +19,11 @@
     </style>
   </head>
   <body>
-    <div id="map"></div>
+    <div id="map" style="display: none;"></div>
+    <div id="countdownExample">
+      <div class="values"></div>
+    </div>
+    <script src="js/easytime.min.js"></script></script>
     <script>
       // Note: This example requires that you consent to location sharing when
       // prompted by your browser. If you see the error "The Geolocation service
@@ -83,9 +87,20 @@
         return d * 1000; // meters
       }
 
+      var timer = new Timer();
+      timer.start({countdown: true, startValues: {seconds: 300}});
+      $('#countdownExample .values').html(timer.getTimeValues().toString());
+      timer.addEventListener('secondsUpdated', function (e) {
+        $('#countdownExample .values').html(timer.getTimeValues().toString());
+      });
+      timer.addEventListener('targetAchieved', function (e) {
+        $('#countdownExample .values').html('KABOOM!!');
+      });
+
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxGV0gdA6Xi_YeFvJu4zQS4Y7T4Ll2U_E&callback=initMap">
     </script>
+
   </body>
 </html>
