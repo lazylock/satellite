@@ -1,5 +1,5 @@
 var map, infoWindow;
-var distance = 0;
+var distance = null;
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -71,7 +71,7 @@ $('#button').on('vmousedown', function () {
   initMap();
   $('#distance').html(Math.floor(distance) + ' meters');
 
-  if(distance > 50){
+  if(distance > 50 || !distance){
     $('#status').html('Out of range')
     timer.pause();    
   }else{
@@ -82,7 +82,7 @@ $('#button').on('vmousedown', function () {
   setTimeout(function () {
     initMap();
     $('#distance').html(Math.floor(distance) + ' meters');
-    if(distance > 50){
+    if(distance > 50 || !distance){
       $('#status').html('Out of range')
       timer.pause();    
     }else{
