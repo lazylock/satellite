@@ -57,20 +57,19 @@ function measure(lat1, lon1, lat2, lon2) {
 }
 
 var timer = new Timer();
-timer.start({ countdown: true, startValues: { seconds: 300 } });
+timer.start({ countdown: true, startValues: { seconds: 10 } });
 timer.stop();
 
 $('#countdownExample .values').html(timer.getTimeValues().toString());
 
 $('#button').mouseup(function () {
-  console.log('mouseup')
-  timer.start({ countdown: true, startValues: { seconds: 301 } });
+  console.log('mouseup');
   timer.stop();
 });
 
 $('#button').mousedown(function () {
   console.log('mousedown');
-  timer.start({ countdown: true, startValues: { seconds: 301 } });
+  timer.start({ countdown: true, startValues: { seconds: 11 } });
 });
 
 timer.addEventListener('secondsUpdated', function(e) {
