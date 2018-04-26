@@ -62,23 +62,23 @@ var timer = new Timer();
 timer.start({countdown: true, startValues: {seconds: 300}});
 timer.pause();
 
-$('#distance').html('Distance: ' + Math.floor(distance));
+$('#distance').html(Math.floor(distance) + ' meters');
 
 $('#countdownExample .values').html(timer.getTimeValues().toString());
 
 $('#button').on('vmousedown', function () {
-  $('#status').html('Status: Connecting')
+  $('#status').html('Connecting')
   timer.start();
   setTimeout(function () {
     initMap();
-    $('#distance').html('Distance: ' + Math.floor(distance) + ' meters');
+    $('#distance').html(Math.floor(distance) + ' meters');
     if(distance > 1000){
-      $('#status').html('Status: Out of range')
+      $('#status').html('Out of range')
       timer.pause();    
     }
   }, 10000);
 }).on('vmouseup', function () {
-  $('#status').html('Status: Signal lost')
+  $('#status').html('Signal lost')
   timer.pause();
 });
 
@@ -87,7 +87,7 @@ timer.addEventListener('secondsUpdated', function(e) {
 });
 
 timer.addEventListener('targetAchieved', function(e) {
-  $('#status').html('Status: Uplink Completed')
+  $('#status').html('Uplink Completed')
   $('#countdownExample .values').html('Code: 312');
 });
 

@@ -14,18 +14,29 @@ html, body {
 #main {
   display: block;
   height: 50vh;
-  position: absolute;
+
 }
 
 #interface {
-  text-align: center;
-  width: 60vw;
-  height: 25vh;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+      display: block;
+      color: black;
+      font-size: 1.25em;
+      text-align: center;
+      left: 50%;
+      top: 50%;
+}
+
+#interface .desc{
+  font-weight: bold;
+}
+
+#interface .val{
+  margin-bottom: 0.25em;
+}
+
+#interface .values{
+  font-size: 1.5em;
+  margin-top: 3em;
 }
 
 #status {
@@ -33,23 +44,19 @@ html, body {
 }
 
 #button {
-  margin: 1em;
+  width: 5em;
+  margin-top: 1em;
+  padding: 1em;
   font-weight: bold;
   border-width: 3px;
   border-color: black;
+  background-color: black;
+  color: white;
 
-    display: block;
-    position: relative;
-
-    border-color: black;
-    color: white !important;
-
-    left: 50%;
-
-    transform: translate(-50%, -50%);
-      -webkit-transform: translate(-50%, -50%);
-      -o-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
 
   cursor: pointer;
   -webkit-user-select: none; /* Safari */        
@@ -59,5 +66,5 @@ html, body {
 }
 
 #button:active {
-  background-color: black;
+  
 }
