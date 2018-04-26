@@ -4,7 +4,7 @@ var distance = 0;
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: -34.397, lng: 150.644 },
-        zoom: 6
+        zoom: 16
     });
     infoWindow = new google.maps.InfoWindow;
 
@@ -67,13 +67,15 @@ $('#distance').html(Math.floor(distance) + ' meters');
 $('#countdownExample .values').html(timer.getTimeValues().toString());
 
 $('#button').on('vmousedown', function () {
-  $('#status').html('Connecting')
+  
   initMap();
   $('#distance').html(Math.floor(distance) + ' meters');
+
   if(distance > 50){
     $('#status').html('Out of range')
     timer.pause();    
   }else{
+    $('#status').html('Connecting')
     timer.start();
   }
 
@@ -84,6 +86,7 @@ $('#button').on('vmousedown', function () {
       $('#status').html('Out of range')
       timer.pause();    
     }else{
+      $('#status').html('Connecting')
       timer.start();
     }
   }, 5000);
