@@ -18,8 +18,9 @@ html, body {
 }
 
 #interface {
-  width: 50%;
-  height: 50%;
+  text-align: center;
+  width: 60vw;
+  height: 25vh;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -40,8 +41,6 @@ html, body {
     display: block;
     position: relative;
 
-    bottom: 0;
-    background-color: black;
     border-color: black;
     color: white !important;
 
@@ -57,4 +56,8 @@ html, body {
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+/Edge */
   user-select: none; /* Standard */
+}
+
+#button:active {
+  background-color: black;
 }
