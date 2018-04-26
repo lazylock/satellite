@@ -1,23 +1,20 @@
-#map {
-  height: 100%;
-}
-
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
   font-family: monospace;
-  font-size: 1.25em;
+  font-size: 1em;
+}
+
+#map {
+  height: 50vh;
+  display: block;
 }
 
 #main {
-  width: 50vw;
+  display: block;
   height: 50vh;
   position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
 }
 
 #status {
