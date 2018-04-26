@@ -26,7 +26,8 @@ function initMap() {
             map.setCenter(pos);
 
             var distance = measure(pos.lat, pos.lng, target.lat, target.lng);
-            console.log(distance);
+            return distance;
+
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
         });
@@ -63,14 +64,18 @@ timer.pause();
 
 $('#countdownExample .values').html(timer.getTimeValues().toString());
 
-$('#button').on('vmouseup', function () {
+$('#button').on('vmousedown', function () {
+  $('#status').html('Status: Connecting')
+  timer.start();
+  setTimeout(function () {
+    if(initMap() > 1000){
+      $('#status').html('Status: Out of range')
+      timer.pause();    
+    }
+  }, 10000);
+}).on('vmouseup', function () {
   $('#status').html('Status: Signal lost')
   timer.pause();
-});
-
-$('#button').on('vmousedown', function () {
-  $('#status').html('Status: Connecting...')
-  timer.start();
 });
 
 timer.addEventListener('secondsUpdated', function(e) {
