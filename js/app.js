@@ -64,13 +64,13 @@ $('#countdownExample .values').html(timer.getTimeValues().toString());
 
 $('#button').mouseup(function () {
   console.log('mouseup')
-  timer.reset();
+  timer.start({ countdown: true, startValues: { seconds: 301 } });
   timer.stop();
 });
 
 $('#button').mousedown(function () {
   console.log('mousedown');
-  timer.start({ countdown: true, startValues: { seconds: 300 } });
+  timer.start({ countdown: true, startValues: { seconds: 301 } });
 });
 
 timer.addEventListener('secondsUpdated', function(e) {
