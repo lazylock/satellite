@@ -17,6 +17,14 @@ html, body {
   position: absolute;
 }
 
+#interface {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
 #status {
 
 }
@@ -25,6 +33,22 @@ html, body {
   font-weight: bold;
   border-width: 3px;
   border-color: black;
+
+    display: block;
+    position: relative;
+
+    bottom: 0;
+    background-color: black;
+    border-color: black;
+    color: white !important;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+
   cursor: pointer;
   -webkit-user-select: none; /* Safari */        
   -moz-user-select: none; /* Firefox */
