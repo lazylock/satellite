@@ -69,19 +69,20 @@ $('#countdownExample .values').html(timer.getTimeValues().toString());
 $('#button').on('vmousedown', function () {
   $('#status').html('Connecting')
   timer.start();
+  setTimeout(function () {
+    initMap();
+    $('#distance').html(Math.floor(distance) + ' meters');
+    if(distance > 50){
+      $('#status').html('Out of range')
+      timer.pause();    
+    }else{
+      timer.start();
+    }
+  }, 5000);
 }).on('vmouseup', function () {
   $('#status').html('Signal lost')
   timer.pause();
 });
-
-  setTimeout(function () {
-    initMap();
-    $('#distance').html(Math.floor(distance) + ' meters');
-    if(distance > 1000){
-      $('#status').html('Out of range')
-      timer.pause();    
-    }
-  }, 10000);
 
 timer.addEventListener('secondsUpdated', function(e) {
   $('#countdownExample .values').html(timer.getTimeValues().toString());
