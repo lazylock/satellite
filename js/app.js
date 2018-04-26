@@ -62,7 +62,7 @@ var timer = new Timer();
 timer.start({countdown: true, startValues: {seconds: 300}});
 timer.pause();
 
-$('#distance').html('Distance: ' + Math.floor(distance);
+$('#distance').html('Distance: ' + Math.floor(distance));
 
 $('#countdownExample .values').html(timer.getTimeValues().toString());
 
@@ -71,7 +71,7 @@ $('#button').on('vmousedown', function () {
   timer.start();
   setTimeout(function () {
     initMap();
-    $('#distance').html('Distance: ' + Math.floor(distance) + ' meters';
+    $('#distance').html('Distance: ' + Math.floor(distance) + ' meters');
     if(distance > 1000){
       $('#status').html('Status: Out of range')
       timer.pause();    
