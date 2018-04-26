@@ -57,10 +57,9 @@ function measure(lat1, lon1, lat2, lon2) {
 }
 
 var timer = new Timer();
-timer.start({ countdown: true, startValues: { seconds: 300 } });
+timer.start({ countdown: false, startValues: { seconds: 300 } });
 
 $('#countdownExample .values').html(timer.getTimeValues().toString());
-timer.stop();
 
 $('#button').mouseup(function () {
     timer.reset();
@@ -68,7 +67,7 @@ $('#button').mouseup(function () {
 });
 
 $('#button').mousedown(function () {
-    timer.start();
+    timer.start({ countdown: true, startValues: { seconds: 300 } });
 });
 
 timer.addEventListener('secondsUpdated', function(e) {
