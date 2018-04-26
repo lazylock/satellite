@@ -62,12 +62,12 @@ timer.start({ countdown: true, startValues: { seconds: 300 } });
 $('#countdownExample .values').html(timer.getTimeValues().toString());
 timer.stop();
 
-$('.button').mouseup(function () {
+$('#button').mouseup(function () {
     timer.reset();
     timer.stop();
 });
 
-$('.button').mousedown(function () {
+$('#button').mousedown(function () {
     timer.start();
 });
 

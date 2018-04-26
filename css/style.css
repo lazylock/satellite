@@ -10,7 +10,7 @@ html, body {
   font-size: 3em;
 }
 
-#countdownExample {
+#main {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -24,4 +24,5 @@ html, body {
 
 #button {
   border: 1px black;
+  cursor: pointer;
 }
