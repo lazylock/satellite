@@ -1,4 +1,4 @@
-var map, infoWindow;
+var map, infoWindow, distance;
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -25,8 +25,7 @@ function initMap() {
             infoWindow.open(map);
             map.setCenter(pos);
 
-            var distance = measure(pos.lat, pos.lng, target.lat, target.lng);
-            return distance;
+            distance = measure(pos.lat, pos.lng, target.lat, target.lng);
 
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
@@ -62,13 +61,15 @@ var timer = new Timer();
 timer.start({countdown: true, startValues: {seconds: 300}});
 timer.pause();
 
+$('#distance').html('Distance: ' + distance);
+
 $('#countdownExample .values').html(timer.getTimeValues().toString());
 
 $('#button').on('vmousedown', function () {
   $('#status').html('Status: Connecting')
   timer.start();
   setTimeout(function () {
-    var distance = initMap();
+    initMap();
     $('#distance').html('Distance: ' + distance);
     if(distance > 1000){
       $('#status').html('Status: Out of range')
