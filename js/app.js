@@ -32,6 +32,7 @@ function initMap() {
         });
     } else {
         // Browser doesn't support Geolocation
+        console.log('location error')
         handleLocationError(false, infoWindow, map.getCenter());
     }
 }
@@ -63,18 +64,21 @@ timer.pause();
 $('#countdownExample .values').html(timer.getTimeValues().toString());
 
 $('#button').mouseup(function () {
+  $('#status').html('Status: Signal lost')
   timer.pause();
 });
 
 $('#button').mousedown(function () {
+  $('#status').html('Status: Connecting...')
   timer.start();
 });
 
 timer.addEventListener('secondsUpdated', function(e) {
-    $('#countdownExample .values').html(timer.getTimeValues().toString());
+  $('#countdownExample .values').html(timer.getTimeValues().toString());
 });
 
 timer.addEventListener('targetAchieved', function(e) {
-    $('#countdownExample .values').html('Code: 312');
+  $('#status').html('Status: Uplink Completed')
+  $('#countdownExample .values').html('Code: 312');
 });
 
