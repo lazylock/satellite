@@ -17,6 +17,10 @@ html, body {
 
 }
 
+#key {
+  display: none;
+}
+
 #interface {
       display: block;
       color: black;

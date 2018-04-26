@@ -60,7 +60,7 @@ function measure(lat1, lon1, lat2, lon2) {
 }
 
 var timer = new Timer();
-timer.start({countdown: true, startValues: {seconds: 300}});
+timer.start({countdown: true, startValues: {seconds: 10}});
 timer.pause();
 
 $('#countdownExample .values').html(timer.getTimeValues().toString());
@@ -70,7 +70,7 @@ $('#button').on('vmousedown', function () {
   initMap();
   $('#distance').html(Math.floor(distance) + ' meters');
 
-  if(distance > 50 || !distance){
+  if(distance > 5000 || !distance){
     $('#status').html('Out of range')
     timer.pause();    
   }else{
@@ -81,7 +81,7 @@ $('#button').on('vmousedown', function () {
   setTimeout(function () {
     initMap();
     $('#distance').html(Math.floor(distance) + ' meters');
-    if(distance > 50 || !distance){
+    if(distance > 5000 || !distance){
       $('#status').html('Out of range')
       timer.pause();    
     }else{
@@ -101,6 +101,12 @@ timer.addEventListener('secondsUpdated', function(e) {
 
 timer.addEventListener('targetAchieved', function(e) {
   $('#status').html('Uplink Completed')
-  $('#countdownExample .values').html('Code: 312');
+  if($('#key').html() == whiteplaza){
+    $('#countdownExample .values').html('Code: white');
+  }else if($('#key').html() == schwab){
+    $('#countdownExample .values').html('Code: schwab');
+  }else if($('#key').html() == cubberly){
+    $('#countdownExample .values').html('Code: cubberly');
+  }
 });
 
