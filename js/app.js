@@ -27,6 +27,7 @@ function initMap() {
             map.setCenter(pos);
 
             distance = measure(pos.lat, pos.lng, target.lat, target.lng);
+            $('#distance').html(Math.floor(distance) + ' meters');
 
         }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
@@ -36,10 +37,6 @@ function initMap() {
         console.log('location error')
         handleLocationError(false, infoWindow, map.getCenter());
     }
-}
-
-function getLocation(){
-  
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -65,8 +62,6 @@ function measure(lat1, lon1, lat2, lon2) {
 var timer = new Timer();
 timer.start({countdown: true, startValues: {seconds: 300}});
 timer.pause();
-
-$('#distance').html(Math.floor(distance) + ' meters');
 
 $('#countdownExample .values').html(timer.getTimeValues().toString());
 
