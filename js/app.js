@@ -68,7 +68,15 @@ $('#countdownExample .values').html(timer.getTimeValues().toString());
 
 $('#button').on('vmousedown', function () {
   $('#status').html('Connecting')
-  timer.start();
+  initMap();
+  $('#distance').html(Math.floor(distance) + ' meters');
+  if(distance > 50){
+    $('#status').html('Out of range')
+    timer.pause();    
+  }else{
+    timer.start();
+  }
+
   setTimeout(function () {
     initMap();
     $('#distance').html(Math.floor(distance) + ' meters');
@@ -79,6 +87,7 @@ $('#button').on('vmousedown', function () {
       timer.start();
     }
   }, 5000);
+
 }).on('vmouseup', function () {
   $('#status').html('Signal lost')
   timer.pause();
