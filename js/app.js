@@ -58,17 +58,15 @@ function measure(lat1, lon1, lat2, lon2) {
 
 var timer = new Timer();
 timer.start({countdown: true, startValues: {seconds: 10}});
-timer.stop();
+timer.pause();
 
 $('#countdownExample .values').html(timer.getTimeValues().toString());
 
 $('#button').mouseup(function () {
-  console.log('mouseup');
-  timer.stop();
+  timer.pause();
 });
 
 $('#button').mousedown(function () {
-  console.log('mousedown');
   timer.start();
 });
 
@@ -77,6 +75,6 @@ timer.addEventListener('secondsUpdated', function(e) {
 });
 
 timer.addEventListener('targetAchieved', function(e) {
-    $('#countdownExample .values').html('312');
+    $('#countdownExample .values').html('Code: 312');
 });
 
