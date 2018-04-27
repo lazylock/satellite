@@ -115,11 +115,11 @@ timer.addEventListener('targetAchieved', function(e) {
   $('#status').html('Uplink Completed')
 
   if($('#key').html() == 'whiteplaza'){
-    $('#countdownExample .values').html('Code: white');
+    $('#countdownExample .values').html('Code: blackout');
   }else if($('#key').html() == 'schwab'){
-    $('#countdownExample .values').html('Code: schwab');
+    $('#countdownExample .values').html('Code: enterprise');
   }else if($('#key').html() == 'cubberly'){
-    $('#countdownExample .values').html('Code: cubberly');
+    $('#countdownExample .values').html('Code: whitebear');
   }
 });
 
