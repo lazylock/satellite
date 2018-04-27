@@ -1,5 +1,22 @@
-var map, infoWindow;
+var map, infoWindow, target;
 var distance = null;
+
+if($('#key').html() == 'whiteplaza'){
+  target = {
+    lat: 37.424315,
+    lng: -122.170150
+  }
+}else if($('#key').html() == 'schwab'){
+  target = {
+    lat: 37.426568,
+    lng: -122.162884
+  }
+}else if($('#key').html() == 'cubberly'){
+  target = {
+    lat: 37.426610, 
+    lng: -122.168243
+  }
+}
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -14,12 +31,7 @@ function initMap() {
             var pos = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
-            };
-
-            var target = {
-                lat: 37.424315,
-                lng: -122.170150
-            }
+            };    
 
             infoWindow.setPosition(pos);
             infoWindow.setContent('Location found.');
@@ -60,7 +72,7 @@ function measure(lat1, lon1, lat2, lon2) {
 }
 
 var timer = new Timer();
-timer.start({countdown: true, startValues: {seconds: 10}});
+timer.start({countdown: true, startValues: {seconds: 300}});
 timer.pause();
 
 $('#countdownExample .values').html(timer.getTimeValues().toString());
@@ -70,7 +82,7 @@ $('#button').on('vmousedown', function () {
   initMap();
   $('#distance').html(Math.floor(distance) + ' meters');
 
-  if(distance > 5000 || !distance){
+  if(distance > 50 || !distance){
     $('#status').html('Out of range')
     timer.pause();    
   }else{
@@ -81,7 +93,7 @@ $('#button').on('vmousedown', function () {
   setTimeout(function () {
     initMap();
     $('#distance').html(Math.floor(distance) + ' meters');
-    if(distance > 5000 || !distance){
+    if(distance > 50 || !distance){
       $('#status').html('Out of range')
       timer.pause();    
     }else{
